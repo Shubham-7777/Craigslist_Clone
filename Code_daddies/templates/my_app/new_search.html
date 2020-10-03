@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+    .card {
+    height: 500px;
+    overflow: hidden;
+}
+
+.card-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+
+{% block content %}
+    <h2 style="text-align: center">{{ search|title }}</h2>
+
+    <div class="row">
+        {% for post in final_post %}
+            <div class="col s8">
+                <div class = "card">
+                    <div class="card-image">
+                        <a href="{{ post.2 }}"><img src="{{ post.3 }}" alt=""></a>
+                    </div>
+                    <div class="card-content">
+                        <p>{{ post.0 }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ post.2 }}"> {{ post.1 }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</style>
+{% endblock content %}
